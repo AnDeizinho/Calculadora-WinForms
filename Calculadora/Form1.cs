@@ -14,6 +14,7 @@ namespace Calculadora
     {
         Calc calculator;
         bool is_result = false;
+        bool for_clean = true;
         public txt()
         {
             calculator = new Calc();
@@ -59,8 +60,10 @@ namespace Calculadora
 
         private void button10_Click(object sender, EventArgs e)
         {
+            
             acomulator.Text += txtpanel.Text + "=";
             txtpanel.Text = calculator.Result().ToString();
+            for_clean = true;
         }
 
         private void InpVirg(object sender, EventArgs e)
@@ -98,13 +101,25 @@ namespace Calculadora
             SetInp("5");
         }
 
+        private void Clear()
+        {
+            txtpanel.Text = "";
+            calculator.Clear();
+        }
+
         private void SetInp(string n)
         {
+            if(for_clean == true)
+            {
+                Clear();
+            }
+
             if (is_result)
                 txtpanel.Text = "";
             txtpanel.Text += n;
             calculator.Input(n);
             is_result = false;
+            for_clean = false;
         }
 
         private void Inp4(object sender, EventArgs e)
@@ -124,8 +139,7 @@ namespace Calculadora
 
         private void button18_Click(object sender, EventArgs e)
         {
-            txtpanel.Text="";
-            calculator.Clear();
+            Clear();
         }
 
         private void operation_handler(object sender, KeyEventArgs e)

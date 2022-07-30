@@ -57,7 +57,7 @@ namespace Calculadora
         }
         public void Clear()
         {
-            op = "";
+            op = "+";
             ac1 = 0;
             ac2 = 0;
             txtpanel = "0";
