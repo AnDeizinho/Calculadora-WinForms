@@ -59,6 +59,7 @@ namespace Calculadora
 
         private void button10_Click(object sender, EventArgs e)
         {
+            acomulator.Text += txtpanel.Text + "=";
             txtpanel.Text = calculator.Result().ToString();
         }
 
