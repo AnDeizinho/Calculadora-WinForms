@@ -1,0 +1,5 @@
+C:\Users\QueirozProgramador\Desktop\calc_monik\Calculadora\Calculadora.exe
+C:\Users\QueirozProgramador\Desktop\calc_monik\Calculadora\Calculadora.dll
+C:\Users\QueirozProgramador\Desktop\calc_monik\Calculadora\Calculadora.deps.json
+C:\Users\QueirozProgramador\Desktop\calc_monik\Calculadora\Calculadora.runtimeconfig.json
+C:\Users\QueirozProgramador\Desktop\calc_monik\Calculadora\Calculadora.pdb
