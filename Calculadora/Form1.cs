@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculadora
@@ -21,11 +14,6 @@ namespace Calculadora
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Inp1(object sender, EventArgs e)
         {
             SetInp("1");
@@ -38,7 +26,7 @@ namespace Calculadora
 
         private void button16_Click(object sender, EventArgs e)
         {
-            acomulator.Text += "/";
+            make_op(calculator.Div().ToString(), "/");
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -56,12 +44,12 @@ namespace Calculadora
             is_result = true;
             acomulator.Text = result + operation;
             txtpanel.Text = result;
+            for_clean = false;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            
-            acomulator.Text += txtpanel.Text + "=";
+            acomulator.Text =calculator.Ac1 + calculator.Op + calculator.Ac2 + "=";
             txtpanel.Text = calculator.Result().ToString();
             for_clean = true;
         }
@@ -103,6 +91,7 @@ namespace Calculadora
 
         private void Clear()
         {
+            acomulator.Text = "";
             txtpanel.Text = "";
             calculator.Clear();
         }
@@ -116,6 +105,10 @@ namespace Calculadora
 
             if (is_result)
                 txtpanel.Text = "";
+
+            if (n == "," && txtpanel.Text.Contains(","))
+                return;
+
             txtpanel.Text += n;
             calculator.Input(n);
             is_result = false;

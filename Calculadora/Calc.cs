@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Calculadora
 {
     public class Calc
     {
         double ac1 = 0;
         double ac2 = 0;
+        public double Ac2 { get => ac2; }
+        public double Ac1 { get => ac1; }
+        public string Op { get => op; }
         string op = "+";
         string txtpanel = "0";
         bool is_lock_op = true;
@@ -24,6 +22,7 @@ namespace Calculadora
             ac1 = Result();
             op = operation;
             is_lock_op = true;
+            txtpanel = "";
             return ac1;
         }
         public double Sub()
@@ -33,6 +32,10 @@ namespace Calculadora
         public double Mult()
         {
             return set_op("*");
+        }
+        public double Div()
+        {
+            return set_op("/");
         }
         public double Result()
         {
@@ -52,7 +55,7 @@ namespace Calculadora
                     re = ac1 / ac2;
                     break;
             }
-            Clear();
+            ac1 = re;
             return re;
         }
         public void Clear()
@@ -64,8 +67,6 @@ namespace Calculadora
         }
         public void Input(string n)
         {
-            if (n == "," && txtpanel.Contains(","))
-                return;
             is_lock_op = false;
             txtpanel += n;
             ac2 = double.Parse(txtpanel);
